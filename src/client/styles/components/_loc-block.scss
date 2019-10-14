@@ -1,0 +1,48 @@
+.loc {
+    &__name {
+        margin-bottom: 0.5em;
+    }
+
+    &__dates {
+        margin-bottom: 0.5em;
+    }
+
+    &__image {
+        height: 260px;
+        width: 350px;
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-image: url(../media/images/trip-placeholder.jpg);
+    }
+
+    &__info {
+        padding: 1em;
+    }
+
+}
+
+.weather{
+    &__title {
+        font-size: 1.2em;
+        font-weight: 700;
+        margin-bottom: 0.3em;
+    }
+
+    &__content {
+        display: flex;
+        align-items: center;
+    }
+
+    &__icon {
+        @include f-c-c;
+        width: 60px;
+        margin-right: 1em;
+    }
+
+    &__data {
+        span {
+            font-weight: 700;
+        }
+    }
+}

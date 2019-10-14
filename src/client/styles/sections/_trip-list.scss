@@ -1,0 +1,59 @@
+.trip{
+
+    &-list {
+        
+        display: none;
+
+        &.active {
+            display: block;
+        }
+
+    }
+
+    &-container {
+        padding: 1.2em;
+        margin-bottom: 50px;
+        background-color: rgba($color: $color-black, $alpha: 0.03);
+        
+
+        &__header {
+            position: relative;
+            @include f-b-c-col;
+        
+            @media(min-width:768px){
+                flex-direction:row;
+            }
+        }
+
+        &__title {
+            font-size: 1.4em;
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+        }
+
+        &__remain {
+            flex-grow:  1;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        
+        }
+
+        &__actions {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 1em;
+            
+            .remove-trip{
+                width: 40px;
+                height: 40px;
+                background-image: url(../media/icons/delete.svg);
+                background-repeat: no-repeat;
+                background-size: contain;
+                cursor: pointer;
+            }
+        }
+    }
+
+}

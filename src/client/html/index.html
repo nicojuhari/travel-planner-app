@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Travel App</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <header>
+            <div class="header container">
+                <a class="logo" href="/" title="Travel Planner"><span></span></a>
+            </div>
+        </header>
+        <main>
+            <section id="trip-form" class="trip-form">
+                <div class="container">
+                    <div class="trip-form__block">
+                        <div class="page-title">
+                                <h1>Travel Planner</h1>
+                                <p>Plan your next wonderful trip with us!</p>
+                        </div>
+                        <div class="trip-form__entry">
+                            <div class="trip-form__location">
+                                <label for="location">
+                                    <span>Current Location</span>
+                                    <input type="text" id="location" name="location">
+                                </label>
+                            </div>
+                            <div class="trip-form__destination">
+                                <label for="destination">
+                                    <span>Destination/City</span>
+                                    <input type="text" id="destination" name="destination">
+                                </label>
+                            </div>
+                            <div class="trip-form__date-start datepicker">
+                                <label for="date-start">
+                                    <span>Departing</span>
+                                    <input type="date" id="date-start" name="date-start">
+                                </label>
+                            </div>
+                            <div class="trip-form__date-end datepicker">
+                                <label for="date-end">
+                                    <span>Returning</span>
+                                    <input type="date" id="date-end" name="date-end">
+                                </label>
+                            </div>
+                            <div class="trip-form__search">
+                                <span>&nbsp;</span>
+                                <button id="search">Search</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="trip-create" class="trip-create">
+                <div id="loading-gif" class="loading-gif"><div class="loading-gif__icon"></div></div>
+                <div class="trip-create-content container">
+                    <h3 class="sec-title">New Trip</h3>
+                    <div id="new-trip" class="new-trip">
+                            <!-- here will be new-trip__location block added by JS -->
+                    </div>
+                </div>
+               
+            </section>
+            <section id="trip-list" class="trip-list">
+                <div class="container">
+                    <h3 class="sec-title">All the Trips</h3>
+                    <div id="trips-list-content" class="trip-list-content">
+                        <!-- here will be new-trip__location block added by JS -->
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer>
+            <div class="footer container">
+                <div class="copyright">Travel Planner &copy; 2019</div>
+                <ul class="social-links">
+                    <li><a class="s-icon fb" target="_blank" title="Facebook" href="https://www.facebook.com/nicojuhari"></a></li>
+                    <li><a class="s-icon in" target="_blank" title="Linkedin" href="https://www.linkedin.com/in/nicojuhari/"></a></li>
+                    <li><a class="s-icon gh" target="_blank" title="GitHub" href="https://github.com/nicojuhari"></a></li>
+                </ul>
+            </div>
+        </footer>
+        <div id="error-block" class="error-block">
+            <div class="error-block__content">
+                <div class="error-block__close js-err-close">&times</div>
+                <div class="error-block__message js-err-message">
+                    some content
+                </div>
+            </div>
+            
+        </div>
+    </body>
+</html>

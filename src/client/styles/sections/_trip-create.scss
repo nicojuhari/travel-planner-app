@@ -1,0 +1,41 @@
+.trip-create {
+
+    display: none;
+
+    &.active {
+        display: block;
+
+        .trip-create-content {
+            display: block;
+        }
+    }
+
+    &.loading {
+        display: block;
+
+        .trip-create-content {
+            display: none;
+        }
+
+        .loading-gif {
+            display: block;
+        }
+
+    }
+
+    .loading-gif {
+        padding: 40px 0;
+        display: none;
+        
+        &__icon {
+            height: 260px;
+            background-image: url(../media/bg/loading.gif);
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+        }
+    }
+
+    
+    
+}

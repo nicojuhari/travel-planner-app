@@ -1,0 +1,26 @@
+footer {
+    background-color: $color-black;
+    color: $color-white;
+
+    .footer {
+        height: 120px;
+        @include f-b-c-col;
+
+        .copyright {
+            margin-bottom: 1.2em;
+        }
+    
+        .social-links {
+            display: flex;
+        }
+
+        @media (min-width: 768px){
+            flex-direction: row;
+            height: 100px;
+
+            .copyright {
+                margin-bottom: 0;
+            }
+        }
+    }
+}

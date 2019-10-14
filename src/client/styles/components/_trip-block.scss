@@ -1,0 +1,119 @@
+.trip {
+
+    display: none;
+
+
+    @media (min-width:768px){
+        transform: translateY(-100px);
+    }
+    &.container {
+        padding: 0;
+    }
+
+    &__block {
+        display: flex;
+        overflow-x: auto;
+        padding: 1.2em;
+
+        &::-webkit-scrollbar {
+            width: 12px;
+        }
+         
+        &::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 6px rgba($color: $color-black, $alpha: 0.4);
+            -webkit-box-shadow: inset 0 0 6px rgba($color: $color-black, $alpha: 0.4);
+            border-radius: 10px;
+        }
+         
+        &::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            max-width: 40px;
+            background-color: $color-green;
+            box-shadow: inset 0 0 12px rgba($color: $color-green, $alpha: 0.5); 
+            -webkit-box-shadow: inset 0 0 12px rgba($color: $color-green, $alpha: 0.5); 
+        }
+
+    }
+
+    &__destination{
+        width: 350px;
+        box-shadow: 0 0 5px 0 rgba($color: $color-black, $alpha: 0.2);
+        background-color: $color-white;
+        margin: 1.2em 1.2em 1.2em 0;
+    }
+
+    &__actions {
+        
+        background-color: rgb(241, 241, 241);
+        margin: 1.2em 1.2em 1.2em 0;
+        border: 10px dashed #eaeaea;
+        @include f-b-c;
+        flex-direction: column;
+
+        .nt-btn {
+            width: 320px;
+            height: 50%;
+            @include f-c-c;
+            flex-direction: column;
+            cursor: pointer;
+
+            p {
+                margin-top: 1em;
+            }
+
+        }
+
+        .add-more-icon {
+            font-size: 8em;
+            color: white;
+            background: $color-green;
+            height: 120px;
+            width: 120px;
+            @include f-c-c;
+            border-radius: 50%;
+            padding-bottom: 8px;
+            transition: all 0.6s;
+
+            &:hover {
+                background: $color-green-hover;
+            }
+        }
+
+        .save-trip-icon {
+
+            height: 120px;
+            width: 120px;
+            background: $color-red;
+            @include f-c-c;
+            border-radius: 50%;
+            transition: all 0.6s;
+            position: relative;
+
+            &:hover {
+                background: $color-red-hover;
+            }
+
+            &:after {
+                content: '';
+                display: block;
+                height: 100%;
+                width: 100%;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 2;
+
+            } 
+
+            span {
+                height: 80px;
+                width: 80px;
+                background-image: url('../media/icons/save.svg');
+                background-position: center;
+                background-repeat: no-repeat;
+                background-size: contain;
+            }
+            
+        }
+    }
+}
