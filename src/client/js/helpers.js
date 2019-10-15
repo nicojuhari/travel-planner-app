@@ -18,3 +18,21 @@ export const showToDoListPopup = indexNr => {
     toDoListPopup.querySelector('input[type="hidden"]').value = indexNr;
     toDoListPopup.classList.add('active');
 }
+
+export const toggleTripCreateSection = (action = '') => {
+
+    const tripCreateSection = document.getElementById('trip-create');
+    
+    if(action == 'active') {
+        tripCreateSection.classList.remove('loading');
+        tripCreateSection.classList.add('active');
+    }
+    if(action == 'loading') {
+        tripCreateSection.classList.remove('active');
+        tripCreateSection.classList.add('loading');
+    }  
+    else {
+        tripCreateSection.classList.remove('active');
+        tripCreateSection.classList.remove('loading');
+    }
+}

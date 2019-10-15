@@ -1,7 +1,7 @@
 import { formValidation } from './form';
 import { createNewTripHtml } from './createUI';
-import { scrollToSection, showToDoListPopup } from './helpers';
-import { getDataFromAPIs, addMoreDestinations, saveNewTrip } from './secNewTrip';
+import { scrollToSection, showToDoListPopup, toggleTripCreateSection, showErrorMessage } from './helpers';
+import { getDataFromAPIs, addMoreDestinations, saveNewTrip, updateForm } from './secNewTrip';
 
 //this array will contain multi Object Destinations
 let newTripHolder = [];
@@ -29,7 +29,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     //get the DOM
     const searchBtn = document.getElementById('search');
-    const tripCreateSection = document.getElementById('trip-create');
     const newTripBlock = document.getElementById('new-trip');
     const popupCloseBtn = document.querySelectorAll('.js-popup-close');
     const saveToDoBtn = document.querySelector('.save-to-do');
@@ -44,21 +43,35 @@ document.addEventListener('DOMContentLoaded', () => {
                 //check the form data(validation)
                 if(userData) {
 
-                    tripCreateSection.classList.remove('active');
-                    tripCreateSection.classList.add('loading');
+                    toggleTripCreateSection('loading'); // show loading gif
                     scrollToSection('trip-create');
                     
                     //start to generate the data(from APIs)
                     getDataFromAPIs(userData)
                     .then(newTripDestination => {
                         
+                        if(newTripDestination.error) {
+
+                            toggleTripCreateSection() //hide the section
+                            scrollToSection('trip-form'); //scroll back to form
+                            
+                            showErrorMessage(newTripDestination.error);
+                            
+                            //enable the search btn
+                            document.getElementById('search').classList.remove('disabled');
+                            
+                        } 
+                        
+                        else {
+
                         //add a new destination to tripHolder object
                         newTripHolder.push(newTripDestination);
 
                         createNewTripBlock(newTripHolder);
+                        
+                        toggleTripCreateSection('active'); //show the content
 
-                        tripCreateSection.classList.remove('loading');
-                        tripCreateSection.classList.add('active');
+                        }
                         
                     });
                     

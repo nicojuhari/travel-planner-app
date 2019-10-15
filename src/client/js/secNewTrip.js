@@ -3,17 +3,20 @@ import { scrollToSection } from './helpers';
 import { displayAllTrips } from './secTripList';
 
 export const getDataFromAPIs = async (userData) => {
-    const newTrip = {}
+    let newTrip = {}
 
     newTrip.dateStart = userData.dateStart;
     newTrip.dateEnd = userData.dateEnd;
     newTrip.toDoList = [];
-    newTrip.error = [];
+    newTrip.error = '';
 
     // get Current Location Coordinates
     await getCoordinatesAPI(userData.location)
     .then(resLocation => {
-        if(resLocation.error) newTrip.error.push = 'The Current Location can\'t be found';
+        if(resLocation.error) {
+
+            newTrip.error = resLocation.error;
+        }
         else {
 
             newTrip.location = {
@@ -29,8 +32,9 @@ export const getDataFromAPIs = async (userData) => {
     await getCoordinatesAPI(userData.destination)
     .then(resDestination => {
         
-        if(resDestination.error) newTrip.error.push = 'The Destination can\'t be found';
-        
+        if(resDestination.error) {
+            newTrip.error = resDestination.error;
+        }
         else {
 
             // add the Destination info to the object
@@ -43,7 +47,7 @@ export const getDataFromAPIs = async (userData) => {
         }
     })
     
-    if(newTrip.destination.lat && newTrip.destination.lng) {
+    if(newTrip.error == '') {
 
         //get the Weather by Destination Coords and DateStart
         await getWeatherAPI(newTrip.destination.lat, newTrip.destination.lng, userData.dateStart)
@@ -151,7 +155,7 @@ export const saveNewTrip = (newTripHolder) => {
         localStorage.setItem('tp_capstone', JSON.stringify(newTPcapstone));
  
         //update Landing UI
-        updateUIAfterSave();
+        updateForm();
 
         return true;
        
@@ -165,7 +169,7 @@ export const saveNewTrip = (newTripHolder) => {
 
 }
 
-const updateUIAfterSave = () => {
+export const updateForm = () => {
     
     //get the DOM
     const tripFormBlock = document.getElementById('trip-form');
