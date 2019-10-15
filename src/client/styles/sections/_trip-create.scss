@@ -1,5 +1,5 @@
 .trip-create {
-
+    min-height: 100vh;
     display: none;
 
     &.active {
@@ -11,24 +11,27 @@
     }
 
     &.loading {
-        display: block;
+        @include f-c-c;
 
         .trip-create-content {
             display: none;
         }
 
         .loading-gif {
-            display: block;
+            display: flex;
         }
 
     }
 
     .loading-gif {
-        padding: 40px 0;
         display: none;
+        padding: 40px 0;
+        align-items: center;
+        
         
         &__icon {
             height: 260px;
+            width: 260px;
             background-image: url(../media/bg/loading.gif);
             background-size: contain;
             background-repeat: no-repeat;

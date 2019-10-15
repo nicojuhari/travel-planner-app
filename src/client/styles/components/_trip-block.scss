@@ -13,7 +13,6 @@
     &__block {
         display: flex;
         overflow-x: auto;
-        padding: 1.2em;
 
         &::-webkit-scrollbar {
             width: 12px;
@@ -37,9 +36,47 @@
 
     &__destination{
         width: 350px;
-        box-shadow: 0 0 5px 0 rgba($color: $color-black, $alpha: 0.2);
+        border: 1px solid rgba($color: $color-black, $alpha: 0.2);
         background-color: $color-white;
         margin: 1.2em 1.2em 1.2em 0;
+
+        .new-dest-actions {
+            padding: 1.2em;
+            font-size: 1.2em;
+
+            div {
+                @include f-c-c;
+                cursor: pointer;
+                position: relative;
+
+                &:hover span {
+                    background-color: $color-red-hover;
+                }
+
+                &:after {
+                    content: '';
+                    display: block;
+                    height: 100%;
+                    width: 100%;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 2;
+    
+                } 
+            }
+
+            span {
+                width: 40px;
+                height: 40px;
+                padding: 5px 10px;
+                color: $color-white;
+                background-color: $color-red;
+                @include f-c-c;
+                margin-right: 5px;
+                transition:  all 0.6s;
+            }
+        }
     }
 
     &__actions {

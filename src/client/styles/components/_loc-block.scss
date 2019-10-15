@@ -46,3 +46,28 @@
         }
     }
 }
+
+.todo {
+    
+    &-block {
+        margin: 1.2em 0;
+    }
+
+    &__title {
+        font-size: 1.2em;
+        font-weight: 700;
+    }
+
+    &__content {
+        margin-top: 1em;
+    }
+
+    &__item {
+        display: inline-block;
+        padding: 5px 12px;
+        border: 1px solid $color-red;
+        color: $color-red;
+        margin: 5px 10px 5px 0;
+        border-radius: 20px;
+    }
+}

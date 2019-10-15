@@ -1,14 +1,11 @@
 .trip-form {
-    min-height: calc(100vh - 120px);
+    min-height: 100vh;
     @include f-c-c-col;
-    background-color: skyblue;
-    background-image: url(../media/bg/form-bg.jpg);
+    background-image: url(../media/bg/form-bg.png);
     background-repeat: no-repeat;
     background-size: cover;
-
-    @media (min-width:768px){
-        min-height: calc(100vh - 100px);
-    }
+    background-position: center bottom;
+    
 
     &__block {
         max-width:460px;
@@ -22,15 +19,24 @@
 
     &__entry {
         
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        grid-gap: 1.2em;
-
-
        label span {
            padding-bottom: 5px;
            display: inline-block;
        }
+    }
+
+    &__row {
+        @include f-b-c;
+        margin-bottom: 1em;
+
+        &>div {
+            margin-right: 1.2em;
+            width: calc(50% - 0.6em);
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
     }
 
 
@@ -47,8 +53,11 @@
         margin: 1em 0 2.5em 0;
 
         h1 {
-            font-size: 3em;
+            font-size: 2em;
             
+            @media (min-width: 768px){
+                font-size: 3em;
+            }
         }
     }
 }

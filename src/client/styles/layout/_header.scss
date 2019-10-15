@@ -18,5 +18,19 @@ header {
                 background-position: center;
             }
         }
+
+        nav li {
+
+            &:not(.active){
+                display: none;
+            }
+
+            a {
+                color: $color-white;
+                padding: 5px 10px;
+            }
+
+            }
+       
     }
 }

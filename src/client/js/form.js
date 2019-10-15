@@ -1,3 +1,5 @@
+import { isFutureDate, isDateAfterThatDate, showErrorMessage } from './helpers';
+
 export const formValidation = () => {
 
     let errors = '';
@@ -69,10 +71,10 @@ export const formValidation = () => {
         
         // if not errors return the validated object
         return {
-                location: location.value, 
-                destination: destination.value, 
-                dateStart: dateStart.value, 
-                dateEnd: dateEnd.value
+                    location: location.value, 
+                    destination: destination.value, 
+                    dateStart: dateStart.value, 
+                    dateEnd: dateEnd.value
                 }
     } else {
 
@@ -82,29 +84,3 @@ export const formValidation = () => {
 
     }
 }
-
-export const enableFormFields = () => {
-
-    const location = document.getElementById('location');
-    const searchBtn = document.getElementById('search');
-    const dateStart = document.getElementById('date-start');
-
-    location.disabled = false;
-    dateStart.disabled = false;
-    searchBtn.classList.remove('disabled');
-    document.getElementById('trip-create').classList.remove('active');
-}
-
-const isFutureDate = (date) => Math.ceil((new Date(date) - Date.now()) / (1000 * 60 * 60 * 24)) >= 0
-const isDateAfterThatDate = (pastDate, futureDate) => Math.ceil((new Date(futureDate) - new Date(pastDate)) / (1000 * 60 * 60 * 24)) > 0
-const showErrorMessage = (msg) => {
-    const errBlock = document.getElementById('error-block');
-
-    errBlock.querySelector('.js-err-message').innerHTML = msg;
-    errBlock.classList.add('active');
-}
-
-export const closeErrorMessage = () => {
-    document.getElementById('error-block').classList.remove('active');
-}
-

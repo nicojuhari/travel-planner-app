@@ -9,6 +9,13 @@
         <header>
             <div class="header container">
                 <a class="logo" href="/" title="Travel Planner"><span></span></a>
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="#trip-list" data-nav="trip-list">All Trips</a>
+                        </li>
+                    </ul>
+                </nav>
             </div>
         </header>
         <main>
@@ -20,29 +27,33 @@
                                 <p>Plan your next wonderful trip with us!</p>
                         </div>
                         <div class="trip-form__entry">
-                            <div class="trip-form__location">
-                                <label for="location">
-                                    <span>Current Location</span>
-                                    <input type="text" id="location" name="location">
-                                </label>
+                            <div class="trip-form__row">
+                                <div class="trip-form__location">
+                                    <label for="location">
+                                        <span>Current Location</span>
+                                        <input type="text" id="location" name="location">
+                                    </label>
+                                </div>
+                                <div class="trip-form__destination">
+                                    <label for="destination">
+                                        <span>Destination/City</span>
+                                        <input type="text" id="destination" name="destination">
+                                    </label>
+                                </div>
                             </div>
-                            <div class="trip-form__destination">
-                                <label for="destination">
-                                    <span>Destination/City</span>
-                                    <input type="text" id="destination" name="destination">
-                                </label>
-                            </div>
-                            <div class="trip-form__date-start datepicker">
-                                <label for="date-start">
-                                    <span>Departing</span>
-                                    <input type="date" id="date-start" name="date-start">
-                                </label>
-                            </div>
-                            <div class="trip-form__date-end datepicker">
-                                <label for="date-end">
-                                    <span>Returning</span>
-                                    <input type="date" id="date-end" name="date-end">
-                                </label>
+                            <div class="trip-form__row">
+                                <div class="trip-form__date-start datepicker">
+                                    <label for="date-start">
+                                        <span>Departing</span>
+                                        <input type="date" id="date-start" name="date-start">
+                                    </label>
+                                </div>
+                                <div class="trip-form__date-end datepicker">
+                                    <label for="date-end">
+                                        <span>Returning</span>
+                                        <input type="date" id="date-end" name="date-end">
+                                    </label>
+                                </div>
                             </div>
                             <div class="trip-form__search">
                                 <span>&nbsp;</span>
@@ -64,7 +75,7 @@
             </section>
             <section id="trip-list" class="trip-list">
                 <div class="container">
-                    <h3 class="sec-title">All the Trips</h3>
+                    <h3 class="sec-title">Saved Trips</h3>
                     <div id="trips-list-content" class="trip-list-content">
                         <!-- here will be new-trip__location block added by JS -->
                     </div>
@@ -81,14 +92,20 @@
                 </ul>
             </div>
         </footer>
-        <div id="error-block" class="error-block">
-            <div class="error-block__content">
-                <div class="error-block__close js-err-close">&times</div>
-                <div class="error-block__message js-err-message">
-                    some content
+        <div id="error-block" class="full-screen">
+            <div class="error-block__content full-screen__block">
+                <div class="full-screen__close js-popup-close">&times;</div>
+                <div class="full-screen__message js-err-message">
                 </div>
             </div>
-            
+        </div>
+        <div id="to-do-list" class="full-screen">
+            <div class="to-do-list__content full-screen__block">
+                <div class="full-screen__close js-popup-close">&times;</div>
+                <input type="text" name="to-do-list">
+                <input type="hidden" name="trip-dest-nr" value="">
+                <div class="save-to-do btn-green">Save</div> 
+            </div>
         </div>
     </body>
 </html>

@@ -1,7 +1,7 @@
 .trip{
 
     &-list {
-        
+        min-height: 100vh;
         display: none;
 
         &.active {
@@ -13,7 +13,8 @@
     &-container {
         padding: 1.2em;
         margin-bottom: 50px;
-        background-color: rgba($color: $color-black, $alpha: 0.03);
+        background-color: $color-white;
+        border: 1px solid rgba($color: $color-black, $alpha: 0.1);
         
 
         &__header {
@@ -46,12 +47,17 @@
             margin-top: 1em;
             
             .remove-trip{
-                width: 40px;
-                height: 40px;
+                width: 30px;
+                height: 30px;
                 background-image: url(../media/icons/delete.svg);
                 background-repeat: no-repeat;
                 background-size: contain;
                 cursor: pointer;
+                transition: all 0.6s;
+
+                &:hover {
+                    transform: translateY(-6px); 
+                }
             }
         }
     }
