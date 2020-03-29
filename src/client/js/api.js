@@ -4,8 +4,8 @@
 export const getCoordinatesAPI = async (city, country = '') => {
 
     const callUrl = `https://api.geonames.org/searchJSON?q=${city}&country=${country}&maxRows=3&username=nicojuhari`;
-    
-    const res = await fetch(callUrl);
+    const res = await fetch('https://cors-anywhere.herokuapp.com/'+ callUrl);
+    //const res = await fetch(callUrl);
     try {
         const data = await res.json();
         

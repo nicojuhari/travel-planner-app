@@ -68,9 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
                         newTripHolder.push(newTripDestination);
 
                         createNewTripBlock(newTripHolder);
-                        console.log('ssws')
                         toggleTripCreateSection('active'); //show the content
-                        console.log('ssws3333')
+                        
                         }
                         
                     });
