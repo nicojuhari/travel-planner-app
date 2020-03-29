@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     .then(newTripDestination => {
                         
                         if(newTripDestination.error) {
-
+                            
                             toggleTripCreateSection() //hide the section
                             scrollToSection('trip-form'); //scroll back to form
                             
@@ -68,9 +68,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         newTripHolder.push(newTripDestination);
 
                         createNewTripBlock(newTripHolder);
-                        
+                        console.log('ssws')
                         toggleTripCreateSection('active'); //show the content
-
+                        console.log('ssws3333')
                         }
                         
                     });

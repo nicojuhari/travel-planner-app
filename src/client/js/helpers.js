@@ -27,7 +27,7 @@ export const toggleTripCreateSection = (action = '') => {
         tripCreateSection.classList.remove('loading');
         tripCreateSection.classList.add('active');
     }
-    if(action == 'loading') {
+    else if(action == 'loading') {
         tripCreateSection.classList.remove('active');
         tripCreateSection.classList.add('loading');
     }  
